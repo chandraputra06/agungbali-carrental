@@ -6,7 +6,7 @@ const FAVORITE_CARS = [
     brand: "Toyota",
     name: "Avanza Veloz",
     price: "IDR 300.000",
-    img: "/sewa-avanza-veloz-di-bali.png",
+    img: "/public/avanza-veloz.png",
     detailUrl:
       "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
     waUrl:
@@ -16,7 +16,7 @@ const FAVORITE_CARS = [
     brand: "Mitsubishi",
     name: "Xpander",
     price: "IDR 400.000",
-    img: "/sewa-xpander-di-bali.png",
+    img: "/public/xpander.png",
     detailUrl:
       "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
     waUrl:
@@ -26,7 +26,7 @@ const FAVORITE_CARS = [
     brand: "Honda",
     name: "Brio Satya",
     price: "IDR 300.000",
-    img: "/sewa-brio-satya-di-bali.png",
+    img: "/public/brio.png",
     detailUrl:
       "https://www.agungbalicarrental.com/mobil/honda-brio-satya",
     waUrl:
@@ -36,7 +36,7 @@ const FAVORITE_CARS = [
     brand: "Toyota",
     name: "Innova Reborn",
     price: "IDR 500.000",
-    img: "/sewa-innova-reborn-di-bali.png",
+    img: "/public/innova-hero.png",
     detailUrl:
       "https://www.agungbalicarrental.com/mobil/toyota-innova-reborn",
     waUrl:
@@ -67,7 +67,7 @@ function FavoriteCars() {
               </div>
               <div className="card-content-wrapper">
                 <div className="card-content-text">
-                  <h3 className="text-body-2 text-bold card-content-text-merk">
+                  <h3 className="text-body-2 pt-2 text-bold card-content-text-merk">
                     {car.brand}
                   </h3>
                   <h3 className="text-bold card-content-text-name">
