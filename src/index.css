@@ -1,68 +1,528 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ===== FONT SATOSHI ===== */
+@font-face {
+  font-family: "Satoshi-Variable";
+  src: url("/Satoshi_Complete/Satoshi_Complete/Fonts/TTF/Satoshi-Variable.ttf")
+    format("truetype");
+  font-weight: 100 900; /* variable font */
+  font-style: normal;
+  font-display: swap;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@font-face {
+  font-family: "Satoshi-Variable";
+  src: url("/Satoshi_Complete/Satoshi_Complete/Fonts/TTF/Satoshi-VariableItalic.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ===== BASE ===== */
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full;
+    font-family: "Satoshi-Variable", system-ui, sans-serif;
   }
-  a:hover {
-    color: #747bff;
+
+  * {
+    @apply m-0 p-0 box-border;
   }
-  button {
-    background-color: #f9f9f9;
+
+  a {
+    @apply bg-transparent;
+  }
+
+  main {
+    @apply block;
+  }
+
+  p {
+    @apply block my-4;
+  }
+}
+
+/* ===== COMPONENTS ===== */
+@layer components {
+  .header {
+    @apply absolute w-full z-[1030];
+  }
+
+  /* dipakai HEADER dan HERO */
+  .container {
+    /* sama seperti CSS asli: max-width + center, tanpa padding */
+    @apply max-w-[1216px] mx-auto px-40;
+  }
+
+  .content-wrapper {
+    @apply flex items-center justify-between py-6;
+    height: var(--header-height);
+  }
+
+  .abc-logo {
+    @apply block w-[88px];
+  }
+
+  .default-nav {
+    @apply flex gap-[72px];
+  }
+
+  .nav-item {
+    @apply text-white no-underline;
+  }
+
+  .text-medium {
+    @apply font-medium;
+  }
+
+  .text-heading-6 {
+    @apply text-[18px] leading-[1.3];
+  }
+
+  .home-banner {
+    @apply flex min-h-screen relative w-full bg-black text-white;
+    padding-top: var(--header-height);
+  }
+
+  .decoration-image {
+    @apply absolute right-0 top-0;
+  }
+
+  /* di dalam .container, tidak mengatur width lagi */
+    .container-home-banner {
+    @apply flex flex-row items-center justify-start gap-[30px];
+    max-width: 1216px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
+  .home-banner-title {
+    @apply text-[58px];
+  }
+
+  .home-banner-desc {
+    @apply mt-4 text-[24px] leading-[1.3] tracking-[0.005em];
+  }
+
+  .text-black {
+    @apply font-black;
+  }
+
+  .text-heading-4 {
+    @apply text-[24px] leading-[1.3] tracking-[0.005em];
+  }
+
+  .btn-asknow {
+    @apply inline-flex items-center justify-center gap-[10px] mt-10 px-4 py-3 rounded-[6px] no-underline cursor-pointer border-0;
+    background-color: yellow;
+    color: black;
+  }
+
+  .btn-icon {
+    font-size: 22px; /* icon Font Awesome */
+  }
+
+  .text-heading-5 {
+    @apply text-[20px];
+  }
+
+  .banner-image {
+    @apply block mr-[60px];
+    flex: 0 0 48%;   /* sisa space buat gambar */
+  }
+
+  .banner-image img {
+    width: 100%;     /* isi penuh kolomnya */
+    max-width: 640px; /* biar nggak terlalu jumbo di layar lebar */
+    display: block;
+  }
+
+  .daftar-favorit {
+    @apply py-[120px] mx-auto max-w-[1216px];
+  }
+
+  .text-heading-3 {
+    @apply text-[38px] leading-[1.3];
+  }
+
+  .daftar-favorit-caption {
+    @apply text-[22px] leading-[30px] mt-1;
+  }
+
+  .card-wrapper {
+    @apply flex flex-wrap flex-row justify-between items-start mt-12 gap-y-[48px];
+  }
+
+  .card {
+    @apply flex flex-col relative overflow-hidden rounded-[12px] no-underline w-[280px];
+    background-color: black;
+  }
+
+  .card-top {
+    @apply flex gap-[6px] px-6 py-[10px] rounded-t-[6px] items-center;
+    background-color: yellow;
+  }
+
+  .anchor-overlay {
+    @apply absolute inset-0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .text-bold {
+    @apply font-bold;
+  }
+
+  .card-content-wrapper {
+    @apply flex flex-col px-6 pb-6;
+  }
+
+  .card-content-text {
+    @apply text-white;
+  }
+
+  .card-content-text-merk {
+    @apply uppercase mb-0;
+    color: yellow;
+  }
+
+  .card-content-text-name {
+    @apply text-white text-[26px] leading-[1.3];
+    margin: 0;
+  }
+
+  .card-content-text-price {
+    @apply text-white mt-2;
+  }
+
+  .card-car-image {
+    @apply h-[170px] mt-2 ml-4 w-[280px] object-contain;
+  }
+
+  .btn-ordernow {
+    @apply inline-flex items-center justify-center gap-[10px] mt-2 py-[10px] w-full rounded-[6px] no-underline cursor-pointer border-0 z-[1];
+    background-color: yellow;
+    color: black;
+  }
+
+  .text-body-2 {
+    @apply text-[14px] leading-[1.4];
+  }
+
+  .home-about {
+    @apply relative w-full bg-black text-white;
+  }
+
+  .container-home-about {
+    @apply max-w-[1216px] mx-auto py-[120px];
+  }
+
+  .home-about-wrapper {
+    @apply flex flex-row justify-between items-center;
+  }
+
+  .home-about-name {
+    @apply text-[28px] leading-[1.3];
+    color: yellow;
+  }
+
+  .home-about-title {
+    @apply text-[38px] leading-[1.3] mt-[10px];
+  }
+
+  .home-about-content-text {
+    @apply flex flex-col gap-[30px];
+  }
+
+  .text-list-wrapper {
+    @apply flex flex-col gap-[24px] mt-[38px];
+  }
+
+  .text-list-main {
+    @apply flex flex-row items-center gap-[14px];
+  }
+
+  .list-border {
+    @apply mt-6 border-b border-[hsla(0,0%,94%,0.6)];
+  }
+
+  .btn-about {
+    @apply inline-flex items-center justify-center gap-[10px] mt-9 px-[18px] py-[10px] rounded-[6px] no-underline cursor-pointer border-2;
+    background-color: yellow;
+    color: black;
+  }
+
+  .feature-image {
+    @apply rounded-t-[6px] ml-[50px];
+    width: 568px;
+    height: 432px;
+  }
+
+  .icon-border {
+    @apply border border-white rounded-[12px] p-[10px];
+  }
+
+  .feature-text {
+    @apply flex flex-col;
+  }
+
+  .feature-item {
+    @apply flex flex-row items-center gap-[12px];
+  }
+
+  .feature-wrapper {
+    @apply flex flex-row justify-between mt-12 ml-[100px];
+  }
+
+  .container-daftar-mobil {
+    @apply max-w-[1216px] mx-auto py-[120px];
+  }
+
+  .headline-daftar-mobil {
+    @apply flex flex-col;
+  }
+
+  .card-dekstop {
+    @apply flex flex-row;
+  }
+
+  .daftar-default-title {
+    @apply mb-0;
+  }
+
+  .daftar-default-caption {
+    @apply text-[22px] leading-[1.3] mt-1;
+  }
+
+  .swiper-indicators {
+    @apply absolute flex items-end;
+    margin-left: 75%;
+    margin-top: 3%;
+  }
+
+  .btn-more {
+    @apply inline-flex items-center justify-center gap-[10px] mt-12 px-[18px] py-[10px] rounded-[6px] no-underline cursor-pointer border-2 border-black bg-white text-black;
+  }
+
+  .available-car {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .bg-img {
+    @apply absolute w-full h-full;
+  }
+
+  .bg-overlay {
+    @apply absolute w-full h-full;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .container-available-car {
+    @apply relative max-w-[1216px] mx-auto py-[162px] text-center;
+  }
+
+  .headline-available-car {
+    @apply text-[36px] leading-[1.4] text-white text-center p-0;
+  }
+
+  .car-logos {
+    @apply flex flex-row items-center justify-center gap-[66px] mt-[100px];
+  }
+
+  .car-logos-item {
+    @apply flex flex-row items-center justify-start gap-[66px];
+  }
+
+  .text-heading-20px {
+    @apply text-[20px] leading-[1.3];
+  }
+
+  .btn-asknow-available-car {
+    @apply mt-[100px];
+  }
+
+  .container-new-article {
+    @apply relative max-w-[1216px] mx-auto py-[120px];
+  }
+
+  .new-article-card-wrapper {
+    @apply flex flex-row justify-between gap-[20px] mt-8;
+  }
+
+  .card-article {
+    @apply flex flex-col overflow-hidden pb-[38px] no-underline relative bg-transparent;
+  }
+
+  .card-article-image {
+    @apply h-[218px] overflow-hidden;
+  }
+
+  .card-article-image-img {
+    @apply w-full h-full object-cover rounded-t-[4px];
+  }
+
+  .card-article-content-wrapper {
+    @apply mt-4;
+  }
+
+  .card-content-text-date {
+    @apply text-[#616161] mb-0 text-[14px];
+  }
+
+  .card-content-text-title {
+    @apply mt-[6px] text-black;
+  }
+
+  .card-content-text-title-penida {
+    margin-top: -10px;
+  }
+
+  .btn-read-article {
+    @apply inline-flex items-center justify-center gap-[10px] mt-[26px] rounded-[6px] border-0 no-underline cursor-pointer text-black bg-transparent;
+  }
+
+  .btn-more-new-article {
+    @apply mt-[26px];
+  }
+
+  .cta {
+    @apply bg-[#f4f4f4];
+  }
+
+  .container-cta {
+    @apply max-w-[1216px] mx-auto py-[52px];
+  }
+
+  .cta-content {
+    @apply flex flex-row items-center justify-between;
+  }
+
+  .cta-text {
+    @apply w-[408px];
+  }
+
+  .text-black-cta-text {
+    @apply text-[34px] leading-[1.4];
+  }
+
+  .cta-text-p {
+    @apply text-[22px] leading-[1.4] mt-[18px];
+  }
+
+  .btn-callnow {
+    @apply inline-flex items-center justify-center px-[28px] py-[10px] rounded-[6px] no-underline cursor-pointer border-2 border-black text-black bg-transparent;
+  }
+
+  .footer {
+    @apply relative bg-black text-white;
+  }
+
+  .decoration-image-footer {
+    @apply absolute top-0;
+    transform: translate(-66px);
+  }
+
+  .container-footer {
+    @apply max-w-[1216px] mx-auto pt-[42px] pb-[72px];
+  }
+
+  .footer-content {
+    @apply flex flex-row;
+  }
+
+  .footer-left {
+    @apply w-[596px];
+  }
+
+  .footer-logo {
+    @apply w-[124px];
+  }
+
+  .footer-logo-img {
+    @apply w-full;
+  }
+
+  .footer-left-address {
+    @apply mt-[160px] pr-[22px] text-[16px] leading-[1.5];
+  }
+
+  .btn-map {
+    @apply inline-flex items-center justify-center gap-[10px] mt-[32px] px-[18px] py-1 rounded-[6px] no-underline cursor-pointer border-2 border-white text-white bg-transparent;
+  }
+
+  .footer-right {
+    @apply flex flex-row items-center justify-around w-full;
+  }
+
+  .footer-nav {
+    @apply flex flex-col gap-[32px];
+  }
+
+  .footer-nav-item {
+    @apply text-white no-underline;
+  }
+
+  .footer-contact {
+    @apply flex flex-col gap-[46px];
+  }
+
+  .footer-contact-item {
+    @apply flex flex-col gap-[6px];
+  }
+
+  .footer-contact-item-info {
+    @apply text-[14px] font-light text-white no-underline;
+  }
+
+  .social-media {
+    @apply flex flex-row gap-[30px];
+  }
+
+  .footer-bottom {
+    @apply flex flex-row gap-[38px] mt-[38px];
+  }
+
+  .footer-bottom-item {
+    @apply text-white no-underline;
+  }
+
+  .text-body-3 {
+    @apply text-[12px] leading-[1.4];
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 800px) {
+  .container {
+    margin: 0 40px;
+  }
+
+  .banner-image {
+    width: 100%;
+    transform: none;
+  }
+
+  .home-banner-title {
+    font-size: 50px;
+  }
+
+  .container-home-banner {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    gap: 30px;
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+ .home-banner-text-wrapper {
+    @apply flex flex-col;
   }
 }
