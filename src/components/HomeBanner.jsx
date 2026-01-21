@@ -3,7 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 function HomeBanner() {
   return (
-    <section className="relative w-full bg-black text-white pt-[80px] md:pt-[96px]">
+    <section className="relative w-full bg-black text-white pt-[80px] md:pt-[240px] md:pb-[240px]">
       {/* dekorasi kanan atas */}
       <div className="pointer-events-none absolute right-0 top-0 hidden md:block">
         <img src="/download.png" alt="" />
@@ -46,11 +46,11 @@ function HomeBanner() {
 
         {/* gambar kanan */}
         <div
-          className="w-full md:mr-[60px] md:w-[40%]"
+          className="w-full md:w-[50%]"
           data-aos="fade-left"
         >
           <img
-            src="/img-hero.png"
+            src="/innova-hero.png"
             alt="Toyota Innova"
             className="block h-auto w-full"
           />
