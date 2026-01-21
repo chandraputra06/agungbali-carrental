@@ -6,7 +6,7 @@ const FAVORITE_CARS = [
     brand: "Toyota",
     name: "Avanza Veloz",
     price: "IDR 300.000",
-    image: "/sewa-avanza-veloz-di-bali.png",
+    image: "/avanza-veloz.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Avanza%20Veloz",
@@ -15,7 +15,7 @@ const FAVORITE_CARS = [
     brand: "Mitsubishi",
     name: "Xpander",
     price: "IDR 400.000",
-    image: "/sewa-xpander-di-bali.png",
+    image: "/xpander.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Mitsubshi%20Xpander",
@@ -24,7 +24,7 @@ const FAVORITE_CARS = [
     brand: "Honda",
     name: "Brio Satya",
     price: "IDR 300.000",
-    image: "/sewa-brio-satya-di-bali.png",
+    image: "/brio.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/honda-brio-satya",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20Brio%20Satya",
@@ -33,7 +33,7 @@ const FAVORITE_CARS = [
     brand: "Toyota",
     name: "Innova Reborn",
     price: "IDR 500.000",
-    image: "/sewa-innova-reborn-di-bali.png",
+    image: "/innova-hero.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-innova-reborn",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Innova%20Reborn",
@@ -42,7 +42,6 @@ const FAVORITE_CARS = [
 
 function FavoriteCars() {
   return (
-    // ⬇⬇ bg-white, teks default hitam
     <section className="bg-white text-black">
       <div className="mx-auto max-w-[1216px] px-4 py-[80px] md:py-[120px]">
         {/* Headline */}
@@ -55,14 +54,14 @@ function FavoriteCars() {
           </p>
         </div>
 
-        {/* Cards – card tetap w-[280px] */}
+        {/* Cards */}
         <div
           className="
-          mt-12
-          flex flex-wrap
-          justify-center gap-y-[48px] gap-x-6
-          lg:justify-between lg:gap-x-0
-        "
+            mt-12
+            flex flex-wrap
+            justify-center gap-y-[48px] gap-x-6
+            lg:justify-between lg:gap-x-0
+          "
         >
           {FAVORITE_CARS.map((car) => (
             <article
@@ -70,13 +69,14 @@ function FavoriteCars() {
               className="relative flex w-[280px] flex-col overflow-hidden rounded-[12px] bg-black shadow-md"
               data-aos="fade-left"
             >
+              {/* overlay ke halaman detail */}
               <a
                 href={car.detailUrl}
                 className="absolute inset-0"
                 aria-label={car.name}
               />
 
-              {/* Badge */}
+              {/* Badge kuning atas */}
               <div className="flex items-center gap-[6px] rounded-t-[6px] bg-[yellow] px-6 py-[10px]">
                 <FaBolt className="h-4 w-4 text-black" />
                 <span className="text-[12px] sm:text-[14px] font-bold text-black">
@@ -84,7 +84,7 @@ function FavoriteCars() {
                 </span>
               </div>
 
-              {/* Content */}
+              {/* Isi card */}
               <div className="relative z-[1] flex flex-col px-6 pb-6 pt-2 text-white">
                 <div>
                   <h3 className="mb-0 text-[12px] sm:text-[14px] font-bold uppercase text-[yellow]">
@@ -98,12 +98,22 @@ function FavoriteCars() {
                   </p>
                 </div>
 
+                {/* Gambar mobil – dibuat lebih besar & agak ke kanan.
+                    Card (article) yg nge-clip bagian yang keluar. */}
                 <img
                   src={car.image}
                   alt={car.name}
-                  className="mt-2 h-[170px] w-[280px] object-contain"
+                  className="
+                    mt-4
+                    ml-[-20px]     /* geser dikit ke kiri supaya bagian depan mobil tetap kelihatan */
+                    h-[200px]      /* tinggi lebih besar */
+                    w-[360px]      /* LEBIH lebar dari card (280px) */
+                    max-w-none     /* jangan di-limit oleh parent */
+                    object-contain
+                  "
                 />
 
+                {/* Tombol WA */}
                 <a
                   href={car.waUrl}
                   target="_blank"
