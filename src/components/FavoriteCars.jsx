@@ -1,14 +1,13 @@
 // src/components/FavoriteCars.jsx
-import { FaBolt, FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaBolt } from "react-icons/fa";
 
-const FAVORITE_CARS = [
+const CARS = [
   {
     brand: "Toyota",
     name: "Avanza Veloz",
     price: "IDR 300.000",
-    img: "/public/avanza-veloz.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
+    image: "/sewa-avanza-veloz-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Avanza%20Veloz",
   },
@@ -16,9 +15,8 @@ const FAVORITE_CARS = [
     brand: "Mitsubishi",
     name: "Xpander",
     price: "IDR 400.000",
-    img: "/public/xpander.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
+    image: "/sewa-xpander-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Mitsubshi%20Xpander",
   },
@@ -26,9 +24,8 @@ const FAVORITE_CARS = [
     brand: "Honda",
     name: "Brio Satya",
     price: "IDR 300.000",
-    img: "/public/brio.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/honda-brio-satya",
+    image: "/sewa-brio-satya-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/honda-brio-satya",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20Brio%20Satya",
   },
@@ -36,9 +33,8 @@ const FAVORITE_CARS = [
     brand: "Toyota",
     name: "Innova Reborn",
     price: "IDR 500.000",
-    img: "/public/innova-hero.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/toyota-innova-reborn",
+    image: "/sewa-innova-reborn-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-innova-reborn",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Innova%20Reborn",
   },
@@ -46,55 +42,67 @@ const FAVORITE_CARS = [
 
 function FavoriteCars() {
   return (
-    <section className="daftar-favorit">
-      <div className="container-daftar-favorit">
-        <div className="headline">
-          <h2 className="text-heading-3 text-black">Paling laris akhir ini!</h2>
-          <p className="daftar-favorit-caption">
+    <section className="bg-black text-white">
+      <div className="max-w-[1216px] mx-auto py-[120px] px-4">
+        <div>
+          <h2 className="text-[38px] leading-[1.3] font-black text-white">
+            Paling laris akhir ini!
+          </h2>
+          <p className="mt-1 text-[22px] leading-[30px]">
             Mobil paling dicari dalam beberapa waktu terakhir.
           </p>
         </div>
 
-        <div className="card-wrapper">
-          {FAVORITE_CARS.map((car) => (
-            <div key={car.name} className="card" data-aos="fade-left">
-              <a href={car.detailUrl} className="anchor-overlay" />
-              <div className="card-top">
-                <FaBolt className="btn-icon" />
-                <span className="text-body-2 text-bold job-type">
+        <div className="mt-12 flex flex-wrap justify-between gap-y-[48px]">
+          {CARS.map((car) => (
+            <article
+              key={car.name}
+              className="relative flex w-[280px] flex-col overflow-hidden rounded-[12px] bg-black"
+              data-aos="fade-left"
+            >
+              <a
+                href={car.detailUrl}
+                className="absolute inset-0"
+                aria-label={car.name}
+              />
+
+              {/* top badge */}
+              <div className="flex items-center gap-[6px] rounded-t-[6px] bg-[yellow] px-6 py-[10px]">
+                <FaBolt className="h-4 w-4 text-black" />
+                <span className="text-[14px] font-bold leading-[1.4] text-black">
                   Paling laris minggu ini!
                 </span>
               </div>
-              <div className="card-content-wrapper">
-                <div className="card-content-text">
-                  <h3 className="text-body-2 pt-2 text-bold card-content-text-merk">
+
+              {/* content */}
+              <div className="flex flex-col px-6 pb-6 pt-2 relative z-[1]">
+                <div className="text-white">
+                  <h3 className="text-[14px] font-bold uppercase text-[yellow] mb-0">
                     {car.brand}
                   </h3>
-                  <h3 className="text-bold card-content-text-name">
+                  <p className="mt-1 text-[26px] leading-[1.3] font-bold">
                     {car.name}
-                  </h3>
-                  <p className="text-medium card-content-text-price">
-                    {car.price}
                   </p>
+                  <p className="mt-2 text-[16px] font-medium">{car.price}</p>
                 </div>
+
                 <img
+                  src={car.image}
                   alt={car.name}
-                  className="card-car-image"
-                  src={car.img}
+                  className="mt-2 ml-4 h-[170px] w-[280px] object-contain"
                 />
+
                 <a
                   href={car.waUrl}
-                  rel="noopener noreferrer"
                   target="_blank"
-                  className="btn-ordernow"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex w-full items-center justify-center gap-[10px] rounded-[6px] bg-[yellow] py-[10px] text-[14px] font-medium text-black no-underline"
                 >
-                  <span className="text-body-2 text-medium">
-                    Pesan Sekarang
-                  </span>
-                  <FaWhatsapp className="btn-icon" />
+                  <span>Pesan Sekarang</span>
+                  <FaWhatsapp className="text-[18px]" />
                 </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

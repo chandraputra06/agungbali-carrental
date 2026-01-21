@@ -1,18 +1,16 @@
-// src/components/CarSlider.jsx
+// src/components/CarListSection.jsx
 import { FaWhatsapp } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
-const CAR_SLIDES = [
+const CARS = [
   {
     brand: "Honda",
     name: "Jazz Rs",
     price: "IDR 350.000",
-    img: "/sewa-honda-jazz-di-bali.png",
+    image: "/sewa-honda-jazz-di-bali.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/honda-jazz-rs",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20Jazz%20Rs",
@@ -21,9 +19,8 @@ const CAR_SLIDES = [
     brand: "Toyota",
     name: "Avanza Veloz",
     price: "IDR 300.000",
-    img: "/sewa-avanza-veloz-di-bali.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
+    image: "/sewa-avanza-veloz-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Avanza%20Veloz",
   },
@@ -31,7 +28,7 @@ const CAR_SLIDES = [
     brand: "Suzuki",
     name: "Ertiga",
     price: "IDR 325.000",
-    img: "/sewa-suzuki-ertiga-di-bali.png",
+    image: "/sewa-suzuki-ertiga-di-bali.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/suzuki-ertiga",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Suzuki%20Ertiga",
@@ -40,7 +37,7 @@ const CAR_SLIDES = [
     brand: "Toyota",
     name: "Rush TRD",
     price: "IDR 325.000",
-    img: "/sewa-toyota-rush-di-bali.png",
+    image: "/sewa-toyota-rush-di-bali.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-rush-trd",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Rush%20TRD",
@@ -49,7 +46,7 @@ const CAR_SLIDES = [
     brand: "Toyota",
     name: "Sienta",
     price: "IDR 350.000",
-    img: "/sewa-toyota-sienta-di-bali.png",
+    image: "/sewa-toyota-sienta-di-bali.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-sienta",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Sienta",
@@ -58,9 +55,8 @@ const CAR_SLIDES = [
     brand: "Toyota",
     name: "Grand Innova",
     price: "IDR 350.000",
-    img: "/sewa-Grand-Innova-di-bali.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/toyota-grand-innova",
+    image: "/sewa-Grand-Innova-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-grand-innova",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Grand%20Innova",
   },
@@ -68,7 +64,7 @@ const CAR_SLIDES = [
     brand: "Honda",
     name: "HRV",
     price: "IDR 500.000",
-    img: "/sewa-honda-hrv-di-bali.png",
+    image: "/sewa-honda-hrv-di-bali.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/honda-hrv",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20HRV",
@@ -77,35 +73,47 @@ const CAR_SLIDES = [
     brand: "Mitsubishi",
     name: "Xpander",
     price: "IDR 400.000",
-    img: "/sewa-xpander-di-bali.png",
-    detailUrl:
-      "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
+    image: "/sewa-xpander-di-bali.png",
+    detailUrl: "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Mitsubshi%20Xpander",
   },
 ];
 
-function CarSlider() {
+function CarListSection() {
   return (
-    <section className="daftar-mobil">
-      <div className="container-daftar-mobil">
-        <div className="headline-daftar-mobil">
-          <h2 className="text-heading-3 text-black daftar-default-title">
+    <section className="bg-black text-white">
+      <div className="max-w-[1216px] mx-auto py-[120px] px-4">
+        <div className="flex flex-col">
+          <h2 className="text-[38px] leading-[1.3] font-black mb-0">
             Lihat pilihan mobil
           </h2>
-          <p className="daftar-default-caption">
+          <p className="mt-1 text-[22px] leading-[1.3]">
             Temukan berbagai pilihan mobil sewa matic untukmu di Bali!
           </p>
+
+          {/* tombol prev/next kanan atas */}
+          <div className="relative mt-6 flex justify-end">
+            <div className="flex gap-3">
+              <button className="swiper-button-prev-custom h-10 w-10 rounded-full border border-white/60">
+                <span className="sr-only">Prev</span>
+              </button>
+              <button className="swiper-button-next-custom h-10 w-10 rounded-full border border-white/60">
+                <span className="sr-only">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8">
           <Swiper
-            modules={[Navigation, Pagination]}
-            navigation
-            pagination={{ clickable: true, dynamicBullets: true }}
+            modules={[Navigation]}
+            navigation={{
+              prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-button-next-custom",
+            }}
             spaceBetween={30}
             loop
-            grabCursor
             breakpoints={{
               0: { slidesPerView: 1 },
               620: { slidesPerView: 2 },
@@ -115,40 +123,44 @@ function CarSlider() {
               1216: { slidesPerView: 4 },
             }}
           >
-            {CAR_SLIDES.map((car) => (
+            {CARS.map((car) => (
               <SwiperSlide key={car.name}>
-                <div className="card slider-card" data-aos="fade-left">
+                <div
+                  className="relative flex flex-col overflow-hidden rounded-[12px] bg-black"
+                  data-aos="fade-left"
+                >
                   <a
                     href={car.detailUrl}
-                    className="anchor-overlay"
+                    className="absolute inset-0"
+                    aria-label={car.name}
                   />
-                  <div className="card-content-wrapper">
-                    <div className="crad-content-text">
-                      <h3 className="text-body-2 text-bold card-content-text-merk">
+                  <div className="flex flex-col px-6 pb-6 pt-4 relative z-[1]">
+                    <div>
+                      <h3 className="text-[14px] font-bold uppercase text-[yellow] mb-0">
                         {car.brand}
                       </h3>
-                      <h3 className="text-bold card-content-text-name">
+                      <p className="mt-1 text-[26px] leading-[1.3] font-bold">
                         {car.name}
-                      </h3>
-                      <p className="text-medium card-content-text-price">
+                      </p>
+                      <p className="mt-2 text-[16px] font-medium">
                         {car.price}
                       </p>
                     </div>
+
                     <img
-                      src={car.img}
+                      src={car.image}
                       alt={car.name}
-                      className="card-car-image"
+                      className="mt-2 ml-4 h-[170px] w-[280px] object-contain"
                     />
+
                     <a
                       href={car.waUrl}
-                      rel="noopener noreferrer"
                       target="_blank"
-                      className="btn-ordernow"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex w-full items-center justify-center gap-[10px] rounded-[6px] bg-[yellow] py-[10px] text-[14px] font-medium text-black no-underline"
                     >
-                      <span className="text-body-2 text-medium">
-                        Pesan Sekarang
-                      </span>
-                      <FaWhatsapp className="btn-icon" />
+                      <span>Pesan Sekarang</span>
+                      <FaWhatsapp className="text-[18px]" />
                     </a>
                   </div>
                 </div>
@@ -157,13 +169,14 @@ function CarSlider() {
           </Swiper>
         </div>
 
-        <div className="btn-wrapper">
+        {/* tombol lihat lebih */}
+        <div className="mt-12">
           <a
             href="https://www.agungbalicarrental.com/daftar-mobil"
-            className="btn-more btn-more-new-article"
+            className="inline-flex items-center gap-[10px] rounded-[6px] border-2 border-black bg-white px-[18px] py-[10px] text-black no-underline"
           >
-            <span className="text-heading-18px text-medium">Lihat Lebih</span>
-            <img src="/tandapanah.svg" alt="" className="btn-icon" />
+            <span className="text-[18px] font-medium">Lihat Lebih</span>
+            <img src="/tandapanah.svg" alt="" className="h-[22px] w-[22px]" />
           </a>
         </div>
       </div>
@@ -171,4 +184,4 @@ function CarSlider() {
   );
 }
 
-export default CarSlider;
+export default CarListSection;
