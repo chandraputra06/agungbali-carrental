@@ -4,15 +4,17 @@ import { FaWhatsapp } from "react-icons/fa";
 function AvailableCar() {
   return (
     <section className="relative w-full overflow-hidden">
+      {/* background + overlay */}
       <div className="absolute inset-0">
         <img
-          src="/available-car.167723f0.jpg"
-          alt=""
+          src="/available-car.jpg"
+          alt="Background mobil tersedia"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
+      {/* konten */}
       <div className="relative mx-auto max-w-[1216px] px-4 py-[100px] md:py-[162px] text-center text-white">
         <h2 className="text-[22px] sm:text-[26px] md:text-[36px] leading-[1.4]">
           " Dengan lebih dari 8 tahun pengalaman dalam industri, Agung Bali
@@ -20,17 +22,19 @@ function AvailableCar() {
           Bali dengan mengutamakan kenyamanan. "
         </h2>
 
-        <div className="mt-[60px] md:mt-[100px] flex flex-col items-center gap-10 md:gap-[40px]">
-          <div className="flex flex-wrap justify-center gap-[40px] md:gap-[66px]">
-            <img src="/isuzu.1546d13b.svg" alt="Isuzu" />
-            <img src="/toyota.8dae8c4e.svg" alt="Toyota" />
-            <img src="/honda.7614a5c1.svg" alt="Honda" />
-          </div>
-          <div className="flex flex-wrap justify-center gap-[40px] md:gap-[66px]">
-            <img src="/mitsubhisi.f8006f54.svg" alt="Mitsubishi" />
-            <img src="/daihatsu.ff251dd1.svg" alt="Daihatsu" />
-            <img src="/suzuki.a7daf2a0.svg" alt="Suzuki" />
-          </div>
+        {/* logo brand – benar-benar center, wrap 2 baris */}
+        <div
+          className="mt-[60px] md:mt-[100px]
+                     flex flex-wrap items-center justify-center
+                     gap-x-[40px] md:gap-x-[66px]
+                     gap-y-[30px]"
+        >
+          <img src="/isuzu.svg" alt="Isuzu" />
+          <img src="/toyota.svg" alt="Toyota" />
+          <img src="/honda.svg" alt="Honda" />
+          <img src="/mitsubishi.svg" alt="Mitsubishi" />
+          <img src="/daihatsu.svg" alt="Daihatsu" />
+          <img src="/suzuki.svg" alt="Suzuki" />
         </div>
 
         <a
