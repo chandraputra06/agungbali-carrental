@@ -1,5 +1,6 @@
 // src/components/CarListSection.jsx
 import { FaWhatsapp } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -11,7 +12,7 @@ const CAR_LIST = [
     brand: "Honda",
     name: "Jazz Rs",
     price: "IDR 350.000",
-    image: "/sewa-honda-jazz-di-bali.png",
+    image: "/honda-jazz.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/honda-jazz-rs",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20Jazz%20Rs",
@@ -20,7 +21,7 @@ const CAR_LIST = [
     brand: "Toyota",
     name: "Avanza Veloz",
     price: "IDR 300.000",
-    image: "/sewa-avanza-veloz-di-bali.png",
+    image: "/avanza-veloz.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-avanza-veloz",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Avanza%20Veloz",
@@ -29,7 +30,7 @@ const CAR_LIST = [
     brand: "Suzuki",
     name: "Ertiga",
     price: "IDR 325.000",
-    image: "/sewa-suzuki-ertiga-di-bali.png",
+    image: "/suzuki.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/suzuki-ertiga",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Suzuki%20Ertiga",
@@ -38,7 +39,7 @@ const CAR_LIST = [
     brand: "Toyota",
     name: "Rush TRD",
     price: "IDR 325.000",
-    image: "/sewa-toyota-rush-di-bali.png",
+    image: "/rush.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-rush-trd",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Rush%20TRD",
@@ -47,7 +48,7 @@ const CAR_LIST = [
     brand: "Toyota",
     name: "Sienta",
     price: "IDR 350.000",
-    image: "/sewa-toyota-sienta-di-bali.png",
+    image: "/sienta.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-sienta",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Sienta",
@@ -56,7 +57,7 @@ const CAR_LIST = [
     brand: "Toyota",
     name: "Grand Innova",
     price: "IDR 350.000",
-    image: "/sewa-Grand-Innova-di-bali.png",
+    image: "/grand-innova.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/toyota-grand-innova",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Toyota%20Grand%20Innova",
@@ -65,7 +66,7 @@ const CAR_LIST = [
     brand: "Honda",
     name: "HRV",
     price: "IDR 500.000",
-    image: "/sewa-honda-hrv-di-bali.png",
+    image: "/hrv.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/honda-hrv",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Honda%20HRV",
@@ -74,7 +75,7 @@ const CAR_LIST = [
     brand: "Mitsubishi",
     name: "Xpander",
     price: "IDR 400.000",
-    image: "/sewa-xpander-di-bali.png",
+    image: "/xpander.png",
     detailUrl: "https://www.agungbalicarrental.com/mobil/mitsubshi-xpander",
     waUrl:
       "https://wa.me/6287861363133?text=Halo%20Agung%20Bali%20Carrental,%20Saya%20ingin%20sewa%20Mitsubshi%20Xpander",
@@ -105,7 +106,14 @@ function CarCard({ car }) {
         <img
           src={car.image}
           alt={car.name}
-          className="mt-2 h-[170px] w-[280px] object-contain"
+          className="
+            mt-4
+            ml-[-8px]
+            h-[185px]
+            w-[320px]
+            max-w-none
+            object-contain
+          "
         />
 
         <a
@@ -124,7 +132,6 @@ function CarCard({ car }) {
 
 function CarListSection() {
   return (
-    // ⬇⬇ background putih
     <section className="bg-white text-black">
       <div className="mx-auto max-w-[1216px] px-4 py-[80px] md:py-[120px]">
         {/* Headline */}
@@ -136,7 +143,7 @@ function CarListSection() {
             Temukan berbagai pilihan mobil sewa matic untukmu di Bali!
           </p>
 
-         {/* tombol navigasi hanya di md+ */}
+          {/* tombol navigasi hanya di md+ */}
           <div className="mt-4 hidden justify-end md:flex">
             <div className="flex gap-3">
               <button
@@ -145,6 +152,7 @@ function CarListSection() {
                   flex h-10 w-10 items-center justify-center
                   rounded-full bg-black text-white text-[20px] font-bold
                   shadow-md
+                  cursor-pointer
                 "
               >
                 <span className="relative -top-px leading-none">‹</span>
@@ -155,6 +163,7 @@ function CarListSection() {
                   flex h-10 w-10 items-center justify-center
                   rounded-full bg-black text-white text-[20px] font-bold
                   shadow-md
+                  cursor-pointer
                 "
               >
                 <span className="relative -top-px leading-none">›</span>
@@ -179,7 +188,7 @@ function CarListSection() {
               nextEl: ".swiper-button-next-custom",
             }}
             spaceBetween={30}
-            loop
+            loop={false}
             breakpoints={{
               768: { slidesPerView: 3 },
               1075: { slidesPerView: 3 },
@@ -205,7 +214,7 @@ function CarListSection() {
             <span className="text-[16px] md:text-[18px] font-medium">
               Lihat Lebih
             </span>
-            <img src="/tandapanah.svg" alt="" className="h-[20px] md:h-[22px]" />
+            <FiArrowRight className="text-[16px] md:text-[18px]" />
           </a>
         </div>
       </div>
