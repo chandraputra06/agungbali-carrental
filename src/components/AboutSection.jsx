@@ -1,10 +1,17 @@
 // src/components/AboutSection.jsx
+import { FiArrowRight } from "react-icons/fi";
+
 function AboutSection() {
   return (
     <section className="relative w-full bg-black text-white overflow-hidden">
-      {/* dekorasi kotak belakang di kanan atas */}
+      {/* dekorasi kotak belakang (kotak 2) */}
       <div className="pointer-events-none absolute right-0 top-0 hidden md:block">
-        <img src="/kotak 2.png" alt="" />
+        <img src="/kotak-2.png" alt="" />
+      </div>
+
+      {/* dekorasi tambahan kotak-2.png seperti di contoh */}
+      <div className="pointer-events-none absolute right-0 top-0 hidden md:block opacity-40">
+        <img src="/kotak-2.png" alt="" />
       </div>
 
       <div className="mx-auto max-w-[1216px] px-4 py-[80px] md:py-[120px]">
@@ -22,41 +29,44 @@ function AboutSection() {
               Kami berfokus pada mobil matic dengan harga sewa terjangkau!
             </h3>
 
+            {/* LIST TEXT */}
             <div className="mt-[24px] flex flex-col gap-[20px]">
               <div>
-                <div className="flex items-start gap-[14px]">
-                  <img src="/dotbox.svg" alt="" className="mt-[4px]" />
+                <div className="flex items-center gap-[14px]">
+                  {/* dotbox pakai ukuran asli, cuma di-center */}
+                  <img src="/dotbox.svg" alt="" />
                   <p className="text-[16px] sm:text-[18px] leading-[1.4]">
-                    " Pesan dengan mudah tanpa email, pesan dengan mudah dan
-                    singkat melalui WhatsApp official kami! "
+                    Pesan dengan mudah tanpa email, pesan dengan mudah dan
+                    singkat melalui WhatsApp official kami!
                   </p>
                 </div>
                 <div className="mt-4 border-b border-[hsla(0,0%,94%,0.6)]" />
               </div>
 
               <div>
-                <div className="flex items-start gap-[14px]">
-                  <img src="/dotbox.svg" alt="" className="mt-[4px]" />
+                <div className="flex items-center gap-[14px]">
+                  <img src="/dotbox.svg" alt="" />
                   <p className="text-[16px] sm:text-[18px] leading-[1.4]">
-                    " Gratis konsultasi tanpa uang muka! Masih bingung memilih
-                    mobil? diskusi tanpa biaya! "
+                    Gratis konsultasi tanpa uang muka! Masih bingung memilih
+                    mobil? diskusi tanpa biaya!
                   </p>
                 </div>
                 <div className="mt-4 border-b border-[hsla(0,0%,94%,0.6)]" />
               </div>
 
               <div>
-                <div className="flex items-start gap-[14px]">
-                  <img src="/dotbox.svg" alt="" className="mt-[4px]" />
+                <div className="flex items-center gap-[14px]">
+                  <img src="/dotbox.svg" alt="" />
                   <p className="text-[16px] sm:text-[18px] leading-[1.4]">
-                    " Kami mencakup seluruh wilayah Kuta, Denpasar, Ubud, dan
-                    sekitarnya. Gratis pengiriman ke airport Ngurah Rai! "
+                    Kami mencakup seluruh wilayah Kuta, Denpasar, Ubud, dan
+                    sekitarnya. Gratis pengiriman ke airport Ngurah Rai!
                   </p>
                 </div>
                 <div className="mt-4 border-b border-[hsla(0,0%,94%,0.6)]" />
               </div>
             </div>
 
+            {/* BUTTON TENTANG KAMI */}
             <a
               href="https://www.agungbalicarrental.com/tentang-kami"
               className="mt-6 inline-flex w-fit items-center gap-[10px] rounded-[6px] border-2 border-black bg-[yellow] px-[18px] py-[10px] text-black no-underline"
@@ -64,7 +74,8 @@ function AboutSection() {
               <span className="text-[14px] md:text-[16px] font-medium">
                 Tentang Kami
               </span>
-              <img src="/tandapanah.svg" alt="" className="h-[18px] w-[18px]" />
+              {/* icon panah tipis */}
+              <FiArrowRight className="text-[14px] md:text-[16px]" />
             </a>
           </div>
 
